@@ -1,10 +1,13 @@
 
 
-
+Small node.js + socket.io test for testing out latency beetween emiting data from a master to all slaves. In this case just by changing the background color beetween black and grey.
 
 ## Installation
 
 ```bash
+# download and install dependencies
+git clone <url-to-repo>
+cd websocket-latenct-test
 npm install
 
 # start server on default port - 3345
