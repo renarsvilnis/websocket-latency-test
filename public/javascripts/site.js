@@ -8,7 +8,8 @@ var isBlack = false;
 var isMaster = false;
 
 // port is a global variable inject in jade template
-var socket = io('http://localhost:' + port);
+// var socket = io('http://localhost:' + port);
+var socket = io(window.location.href);
 
 var handleResize = function () {
   canvas.width = window.innerWidth;
