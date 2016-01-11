@@ -9,7 +9,9 @@ var isMaster = false;
 
 // port is a global variable inject in jade template
 // var socket = io('http://localhost:' + port);
-var socket = io(window.location.href);
+var url = window.location.origin;
+console.log('Connecting to', url);
+var socket = io(url);
 
 var handleResize = function () {
   canvas.width = window.innerWidth;

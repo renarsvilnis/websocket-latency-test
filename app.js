@@ -7,6 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var socketIO = require('socket.io');
+var debug = require('debug')('websocket-latency-test:socket');
 
 var routes = require('./routes/index');
 
@@ -54,9 +55,11 @@ if (app.get('env') === 'development') {
 // socket.io stuff
 var isBlack = true;
 io.on('connection', function(socket) {
+  debug('new connection');
   socket.emit('init', {isBlack: isBlack});
 
   socket.on('switchAction', function () {
+    debug('switchAction call');
     isBlack = !isBlack;
     io.emit('switch', {isBlack: isBlack});
   });
